@@ -13,6 +13,8 @@ from tltorch.factorized_tensors.core import FactorizedTensor
 einsum_symbols = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 def _contract_dense(x, weight, separable=False):
+    print(f'[_contract_dense]')
+
     order = tl.ndim(x)
     # batch-size, in_channels, x, y...
     x_syms = list(einsum_symbols[:order])
@@ -41,6 +43,7 @@ def _contract_dense_separable(x, weight, separable=True):
     return x*weight
 
 def _contract_cp(x, cp_weight, separable=False):
+    print(f'[_contract_cp]')
     order = tl.ndim(x)
 
     x_syms = str(einsum_symbols[:order])
@@ -59,6 +62,7 @@ def _contract_cp(x, cp_weight, separable=False):
  
 
 def _contract_tucker(x, tucker_weight, separable=False):
+    print(f'[_contract_tucker]')
     order = tl.ndim(x)
 
     x_syms = str(einsum_symbols[:order])
@@ -81,6 +85,7 @@ def _contract_tucker(x, tucker_weight, separable=False):
 
 
 def _contract_tt(x, tt_weight, separable=False):
+    print(f'[_contract_tt]')
     order = tl.ndim(x)
 
     x_syms = list(einsum_symbols[:order])
