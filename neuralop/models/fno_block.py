@@ -6,7 +6,9 @@ import tensorly as tl
 from tensorly.plugins import use_opt_einsum
 tl.set_backend('pytorch')
 
-use_opt_einsum('optimal')
+# Use lumina.
+use_lumina()
+
 
 from tltorch.factorized_tensors.core import FactorizedTensor
 
