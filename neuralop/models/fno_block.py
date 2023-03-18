@@ -3,12 +3,11 @@ import torch
 import itertools
 
 import tensorly as tl
-from tensorly.plugins import use_opt_einsum
+from tensorly.plugins import use_lumina
 tl.set_backend('pytorch')
 
 # Use lumina.
 use_lumina()
-
 
 from tltorch.factorized_tensors.core import FactorizedTensor
 
